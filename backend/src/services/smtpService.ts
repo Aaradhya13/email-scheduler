@@ -29,11 +29,16 @@ function createTransporter() {
   return nodemailer.createTransport({
     host: env.etherealHost,
     port: env.etherealPort,
-    secure: env.etherealPort === 465,
+    secure: false,
+    requireTLS: true,
+    ignoreTLS: false,
+    tls: {
+      rejectUnauthorized: false,
+    },
     dnsTimeout: 10_000,
-    connectionTimeout: 15_000,
-    greetingTimeout: 15_000,
-    socketTimeout: 30_000,
+    connectionTimeout: 30_000,
+    greetingTimeout: 30_000,
+    socketTimeout: 60_000,
     auth: {
       user: env.etherealUser,
       pass: env.etherealPassword,
