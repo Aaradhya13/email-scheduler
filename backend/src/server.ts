@@ -14,7 +14,9 @@ import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
 const PgSessionStore = connectPgSimple(session);
+const isProduction = env.nodeEnv === "production";
 
+app.set("trust proxy", 1);
 configurePassport();
 
 app.use(
@@ -35,10 +37,11 @@ app.use(
     secret: env.sessionSecret,
     resave: false,
     saveUninitialized: false,
+    proxy: isProduction,
     cookie: {
       httpOnly: true,
-      secure: env.nodeEnv === "production",
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
   }),
