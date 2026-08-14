@@ -15,6 +15,7 @@ export const env = {
     process.env.SESSION_SECRET ?? "development-session-secret-change-me",
   redisHost: process.env.REDIS_HOST ?? "localhost",
   redisPort: Number(process.env.REDIS_PORT ?? 6379),
+  redisUrl: process.env.REDIS_URL,
   workerConcurrency: Number(process.env.WORKER_CONCURRENCY ?? 5),
   minEmailDelayMs: Number(process.env.MIN_EMAIL_DELAY_MS ?? 2000),
   maxEmailsPerHour: Number(process.env.MAX_EMAILS_PER_HOUR ?? 200),

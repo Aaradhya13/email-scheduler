@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "worker": "tsx src/workers/emailWorker.ts",
+    "worker:start": "node dist/workers/emailWorker.js",
     "db:init": "tsx src/db/init.ts",
+    "db:init:prod": "node dist/db/init.js",
     "build": "tsc",
+    "deploy:start": "npm run db:init:prod && node dist/deploy.js",
     "start": "node dist/server.js"
   },
   "keywords": [],
