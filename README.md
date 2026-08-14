@@ -95,7 +95,7 @@ The application, database, Redis, authentication, and email queue/worker are dep
 
 ## Known Limitation
 
-Ethereal SMTP preview email delivery may fail or time out from the Render free tier because outbound SMTP access is restricted or unreliable in some free-tier environments. This is an external provider/network limitation rather than an application bug. The app still deploys successfully and the queue/worker, PostgreSQL, Redis, Google OAuth, and session flow operate as expected; the email transport itself may be blocked when attempting to send through Ethereal from Render.
+Ethereal SMTP preview email delivery may fail or time out from the Render free tier because outbound SMTP access is restricted or unreliable in some free-tier environments. This is an external provider/network limitation rather than an application bug. The app still deploys successfully and the queue/worker, PostgreSQL, Redis, Google OAuth, and session flow operate as expected; the email transport itself may be blocked when attempting to send through Ethereal from Render. Attachment uploads work locally, but the current Render free-tier deployment does not have persistent writable storage configured. For a production deployment, attachments should be stored using persistent storage or an object-storage service such as Amazon S3.
 
 ## Running Locally
 
