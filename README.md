@@ -84,6 +84,19 @@ ETHEREAL_FROM="Outbox Labs <no-reply@outbox.test>"
 
 Do not commit real Google or Ethereal credentials.
 
+## Deployment
+
+Production deployment is running on Render:
+
+- Frontend: https://outbox-labs-frontend.onrender.com
+- Backend: https://outbox-labs-backend.onrender.com
+
+The application, database, Redis, authentication, and email queue/worker are deployed successfully on Render.
+
+## Known Limitation
+
+Ethereal SMTP preview email delivery may fail or time out from the Render free tier because outbound SMTP access is restricted or unreliable in some free-tier environments. This is an external provider/network limitation rather than an application bug. The app still deploys successfully and the queue/worker, PostgreSQL, Redis, Google OAuth, and session flow operate as expected; the email transport itself may be blocked when attempting to send through Ethereal from Render.
+
 ## Running Locally
 
 Start PostgreSQL and Redis:
