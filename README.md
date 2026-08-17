@@ -1,4 +1,4 @@
-# Outbox Labs Email Scheduler
+# Email Scheduler
 
 A full-stack email scheduler built with React, Express, PostgreSQL, Redis,
 BullMQ, Nodemailer, Ethereal SMTP, and Google OAuth.
